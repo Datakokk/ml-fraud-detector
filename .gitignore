@@ -1,0 +1,38 @@
+# Entorno virtual
+.venv/
+venv/
+
+# Archivos Python compilados
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Archivos temporales o logs
+*.log
+*.tmp
+
+# Archivos del modelo
+app/model/model.pkl
+
+# Archivos del sistema o editor
+.DS_Store
+*.swp
+*.swo
+*.bak
+
+# VSCode
+.vscode/
+
+# Archivos de configuración personales o sensibles
+.env
+.env.*
+
+# Docker / Cloud
+*.tar
+*.lock
+.cache/
+.gcloud/
+
+# GitHub Actions secrets (por seguridad)
+secrets.json
