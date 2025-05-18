@@ -1,8 +1,8 @@
 from fastapi import FastAPI, HTTPException
-from app.schemas import TransactionRequest, PredictionResponse
-from app.utils.train_model import train_model_pipeline
-from app.train import router as train_router
-from app.status import router as status_router
+from schemas import TransactionRequest, PredictionResponse
+from utils.train_model import train_model_pipeline
+from train import router as train_router
+from status import router as status_router
 import joblib
 import numpy as np
 import os
