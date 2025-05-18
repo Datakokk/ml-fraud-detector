@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Copia los archivos del proyecto
-COPY ./app ./app
+COPY ./app .
 COPY requirements.txt .
 
 # Instala dependencias de Python
