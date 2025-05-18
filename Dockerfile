@@ -21,7 +21,7 @@ COPY requirements.txt .
 # Instala dependencias de Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN mkdir -p model && python app/utils/train_model.py
+RUN mkdir -p model && python utils/train_model.py
 
 # Expón el puerto (opcional pero recomendable)
 EXPOSE 8080
