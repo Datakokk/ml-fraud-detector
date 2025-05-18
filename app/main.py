@@ -9,25 +9,22 @@ import os
 
 app = FastAPI(title="ML Fraud Detector")
 
-# Cargar modelo al iniciar
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_PATH = os.path.abspath("app/model/model.pkl")
-
-try:
-    model = joblib.load(MODEL_PATH)
-except Exception as e:
-    raise RuntimeError(f"❌ Failed to load model: {e}")
 
 @app.post("/predict", response_model=PredictionResponse)
 def predict(transaction: TransactionRequest):
     try:
+        model_path = os.path.abspath("app/model/model.pkl")
+        model = joblib.load(model_path)  # Carga el modelo solo cuando se llama al endpoint
         features = np.array([[transaction.amount]])
         prediction = model.predict(features)[0]
         prob = model.predict_proba(features)[0][1]
         return PredictionResponse(is_fraud=bool(prediction), risk_score=float(prob))
+    except FileNotFoundError:
+        raise HTTPException(status_code=500, detail="Model file not found. Please train the model first.")
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-# Registrar router /train
+
+# Registrar routers
 app.include_router(train_router)
 app.include_router(status_router)
