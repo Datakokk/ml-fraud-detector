@@ -15,16 +15,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Copia los archivos del proyecto
-COPY ./app ./
+COPY ./app ./app
 COPY requirements.txt .
 
 # Instala dependencias de Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN mkdir -p model && python utils/train_model.py
+RUN mkdir -p app/model && python app/utils/train_model.py
 
 # Expón el puerto (opcional pero recomendable)
 EXPOSE 8080
 
 # Usa el comando recomendado para Uvicorn en FastAPI
-CMD ["uvicorn",  "main:app", "--host",  "0.0.0.0" "--port", "${PORT:-8080}"]
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8080}"]
+
