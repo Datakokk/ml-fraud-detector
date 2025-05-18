@@ -15,13 +15,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 # Copia los archivos del proyecto
-COPY ./app .
+COPY ./app ./app
 COPY requirements.txt .
 
 # Instala dependencias de Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN mkdir -p model && python utils/train_model.py
+RUN python app/utils/train_model.py
 
 # Expón el puerto (opcional pero recomendable)
 EXPOSE 8080
