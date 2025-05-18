@@ -12,6 +12,9 @@ def train_model_pipeline():
 
     output_dir = os.path.join("app", "model")
     os.makedirs(output_dir, exist_ok=True)
-    joblib.dump(model, os.path.join(output_dir, "model.pkl"))
+    #joblib.dump(model, os.path.join(output_dir, "model.pkl"))
+    # Dentro de app/utils/train_model.py
+    joblib.dump(model, "model/model.pkl")  # esto es relativo al contenedor
+
 
     print("✅ Modelo entrenado y guardado correctamente.")
