@@ -6,7 +6,7 @@ GCP_REGION = your-region
 
 # Trains the model and saves model.pkl in app/model/
 train:
-	python train_model.py
+	python app/utils/train_model.py
 
 # Runs the microservice locally with Uvicorn
 run:
