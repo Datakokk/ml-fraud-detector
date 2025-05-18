@@ -27,4 +27,4 @@ RUN mkdir -p model && python utils/train_model.py
 EXPOSE 8080
 
 # Usa el comando recomendado para Uvicorn en FastAPI
-CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8080}"]
+CMD ["sh", "-c", "uvicorn main:app --host 0.0.0.0 --port ${PORT:-8080}"]
