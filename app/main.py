@@ -1,8 +1,8 @@
 from fastapi import FastAPI, HTTPException
-from schemas import TransactionRequest, PredictionResponse
-from utils.train_model import train_model_pipeline
-from train import router as train_router
-from status import router as status_router
+from app.schemas import TransactionRequest, PredictionResponse
+from app.utils.train_model import train_model_pipeline
+from app.train import router as train_router
+from app.status import router as status_router
 import joblib
 import numpy as np
 import os
@@ -10,7 +10,9 @@ import os
 app = FastAPI(title="ML Fraud Detector")
 
 # Cargar modelo al iniciar
-MODEL_PATH = os.path.join("app", "model", "model.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "model", "model.pkl")
+
 try:
     model = joblib.load(MODEL_PATH)
 except Exception as e:
