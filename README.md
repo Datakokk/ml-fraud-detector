@@ -143,5 +143,4 @@ curl -X POST https://your-service-url/predict \
 ## 📚 References
 
 - Part of the [ChainSentinel](https://github.com/your_username/ChainSentinel) ecosystem.
-- Inspired by clean architecture patterns and the [Biblioteca](https://github.com/Datakokk/Biblioteca) project.
 - Integrates with Google Cloud services and external blockchain APIs like Etherscan.
