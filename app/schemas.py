@@ -7,7 +7,7 @@ class TransactionRequest(BaseModel):
     amount: float
     origin_address: str
     destination_address: str
-    timestamp: datetime  # or str if you prefer to handle it as text
+    date: datetime  # or str if you prefer to handle it as text
 
 class PredictionResponse(BaseModel):
     is_fraud: bool = Field(..., description="Is the transaction fraudulent?")
