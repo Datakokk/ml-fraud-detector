@@ -2,7 +2,7 @@ from pydantic import BaseModel, Field
 from datetime import datetime
 
 class TransactionRequest(BaseModel):
-    transaction_id: int
+    transaction_id: str
     tx_hash: str
     amount: float
     origin_address: str
