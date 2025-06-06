@@ -16,6 +16,8 @@ def predict(transaction: TransactionRequest):
     KNOWN_FRAUD_HASHES = {
         "0xb5c8bd9430b6cc87a0e2fe110ece6bf527fa4f170a4bc8cd032f768fc5219838",
         "0x9999999999999999999999999999999999999999999999999999999999999999",
+        "0xb5cb8bd943b6cc87a0e2fe11e0ece6bf527f4af1f0a4bc8cd032f768fc521983",
+        "0xa3f91b92d4457de6c719c5e0b38294bded839f1189b6dc2f032e3dd3124c9d82"
     }
 
     # Si el hash está en la lista negra, devolver directamente resultado fraudulento
